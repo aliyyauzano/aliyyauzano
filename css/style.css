@@ -470,7 +470,7 @@
   /* Transport */
   .transport-note {
     font-family: 'Batusa', cursive;
-    font-size: 10px;
+    font-size: 14px;
     color: white;
     text-align: center;
     margin: 0;
@@ -556,7 +556,7 @@
   
   .countdown-label {
     font-family: 'Batusa', cursive;
-    font-size: 20px;
+    font-size: 26px;
     color: #977676;
     margin-bottom: 0rem;
     letter-spacing: 1px;
@@ -564,7 +564,7 @@
   
   .countdown-timer {
     font-family: 'Batusa', cursive;
-    font-size: 18px;
+    font-size: 20px;
     color: white;
     line-height: 1.6;
   }
