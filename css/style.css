@@ -1,0 +1,804 @@
+@font-face {
+    font-family: 'Batusa';
+    src: url('../fonts/Batusa.otf') format('opentype');
+  }
+  
+  
+  /* ============ BASE STYLES ============ */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #140f0f;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mobile-container {
+    width: 100%;
+    max-width: 500px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+    margin-left: auto;
+  }
+  
+  /* Minimalist Preloader */
+  .preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-out;
+  }
+  
+  .loader-text {
+    font-family: 'Batusa', cursive;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    position: relative;
+  }
+  
+  /* Optional: Subtle pulse animation */
+  .loader-text:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+    animation: pulse 2s infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  /* ============ COVER SECTION ============ */
+  .cover-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cover-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
+    z-index: 2;
+  }
+  
+  .title {
+    font-family: 'Batusa', cursive;
+    font-size: 15px;
+    margin-bottom: 0;
+    margin-left: -2rem;
+  }
+  
+  .names {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-left: -2rem;
+  }
+  
+  .cover-gif {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1.5;
+    pointer-events: none;
+    opacity: 1;
+    mix-blend-mode: screen; /* Optional: for better gif blending */
+  }
+  
+  .cover-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #140f0f 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+  
+  /* Styling for Arabic Verse Section */
+  .verse-section {
+    max-width: 85%;
+    margin: 0 auto;
+    padding: 30px 0px;
+    font-family: 'Playfair Display', serif;
+    color: white;
+    text-align: center;
+    margin-bottom: -5em;
+  }
+  
+  .verse-arabic {
+    font-size: 1.1em;
+    font-family: 'Scheherazade New', serif; /* Font Arabic kalau tersedia */
+    direction: rtl;
+    line-height: 2.3;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+  }
+  
+  .verse-source {
+    font-size: 1em;
+    font-family: 'Batusa', cursive;
+    font-size: 12px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+    margin-top: -1em;
+  }
+  
+  .bismillah-text {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.1em;
+    margin-bottom: -0.5em;
+    color: #e8e6e3;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  }
+  
+  .strip-line {
+    width: 65%;
+    height: 1px;
+    background-color: white;
+    margin: 0rem auto; /* atas-bawah 2rem, tengah horizontal */
+    margin-top: -0.5em;
+  }
+  
+  /* ============ COUPLE SECTION ============ */
+  .couple-section {
+    text-align: center;
+  }
+  
+  .gray-background {
+    background-color: #140f0f;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .black-panel {
+    background-color: #000;
+    width: 80%;
+    border-radius: 20px;
+    padding: 2rem 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .section-title {
+    font-family: 'Batusa', cursive;
+    font-size: 30px;
+    margin: 1rem 0 1.5rem;
+    color: white;
+  }
+  
+  .couple-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Photo Frames */
+  .bride-container, 
+  .groom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .photo-frame {
+    position: relative;
+    width: 95%;
+    max-width: 250px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .couple-photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .bride-container .photo-frame::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 98%;
+    border: 3px solid white;
+    z-index: 3;
+    opacity: 0.9;
+    transform: translateY(10px);
+  }
+  
+  .groom-container .photo-frame::before {
+    content: "";
+    position: absolute;
+    width: 98%;
+    height: 98%;
+    border: 3px solid white;
+    z-index: 3;
+    opacity: 0.9;
+    transform: translate(-6px, -6px);
+    transform-origin: center;
+  }
+  
+  /* Text Styles */
+  .couple-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin: 0 0 0.25rem;
+    color: white;
+  }
+  
+  .couple-desc {
+    font-family: 'Batusa', cursive;
+    font-size: 12.5px;
+    line-height: 1.4;
+    margin: 0;
+    color: #977676;
+  }
+  
+  .and-symbol {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin: 0 0 1rem;
+    color: white;
+  }
+  
+  /* ============ EVENT SECTION ============ */
+  .event-section {
+    padding: 0;
+  }
+  
+  .event-date {
+    font-family: 'Batusa', cursive;
+    font-size: 25px;
+    color: white;
+    margin: 0 0 -1rem;
+    text-align: center;
+  }
+  
+  /* Schedule */
+  .event-schedule {
+    position: relative;
+    margin-top: 0rem;
+  }
+  
+  .schedule-frame-outline {
+    position: relative;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 1.2rem;
+    margin: 1.5rem 1rem 3rem;
+    background-color: transparent;
+    z-index: 1;
+  }
+  
+  .schedule-item {
+    display: block;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .schedule-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .ceremony-type {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: white;
+    margin: 0 0 0.3rem;
+  }
+  
+  .ceremony-time {
+    font-family: 'Batusa', cursive;
+    font-size: 16px;
+    color: #977676;
+    margin: 0;
+    display: block;
+  }
+  
+  /* Location */
+  .venue-label {
+    font-family: 'Batusa', cursive;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: -0.2rem;
+  }
+  
+  .venue-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-weight: 600;
+  }
+  
+  .venue-address {
+    font-family: 'Batusa', cursive;
+    font-size: 14px;
+    color: #977676;
+    text-align: center;
+    margin: 0 0 0.5rem;
+  }
+  
+  /* Transport */
+  .transport-note {
+    font-family: 'Batusa', cursive;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Maps Embed */
+.maps-embed {
+    margin: 1rem 0;
+    padding: 0 1rem;
+    margin-top: -15px;
+}
+
+.maps-embed iframe {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+  
+.maps-embed iframe {
+    filter: grayscale(20%) invert(90%) contrast(90%) hue-rotate(180deg);
+    opacity: 0.9;
+}
+
+.maps-embed iframe {
+    filter: grayscale(30%) invert(100%) contrast(85%) hue-rotate(180deg);
+    opacity: 0.95;
+    transition: filter 0.3s ease; /* Smooth hover effect */
+}
+
+.maps-embed iframe:hover {
+    filter: grayscale(0%) invert(0%) contrast(100%); /* Reveals colors on hover for fun */
+}
+
+  /* ============ DECORATIONS ============ */
+.leaf-decoration {
+    position: absolute;
+    background-image: url('../img/leaf.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    right: 5rem; /* Gunakan right bukan left */
+    z-index: 2;
+    opacity: 0;
+    transform: rotate(-15deg);
+    transform-origin: center top;
+    transition: opacity 0.8s ease-out;
+}
+  
+  .flower-decoration {
+    position: absolute;
+    background-image: url('../img/flower.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 135px;
+    top: 0.5px;
+    right: -5px; /* Gunakan right bukan left */
+    z-index: 2;
+    opacity: 0.9;
+    transform: rotate(0deg);
+  }
+  
+  /* Countdown Styles */
+  .countdown-section {
+    max-width: 500px;
+    background-color: #080908;
+    text-align: center;
+    position: relative; /* ini penting supaya ::before tetap di dalam section */
+    overflow: hidden;
+    margin-bottom: 0;
+    margin-left: auto;
+    width: 100%;
+  }
+  
+  .countdown-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 6rem;
+    margin-left: auto;
+  }
+  
+  .countdown-label {
+    font-family: 'Batusa', cursive;
+    font-size: 20px;
+    color: #977676;
+    margin-bottom: 0rem;
+    letter-spacing: 1px;
+  }
+  
+  .countdown-timer {
+    font-family: 'Batusa', cursive;
+    font-size: 18px;
+    color: white;
+    line-height: 1.6;
+  }
+  
+  .countdown-timer span {
+    font-weight: 600;
+    color: #ffffff;
+  }
+  
+  .countdown-section::before {
+    content: "";
+    position: absolute;
+    top: 0px; /* naikkan agar gradasi menyatu ke atas */
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to bottom, #140f0f 0%, #080908 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  /* Gallery Styles */
+  .gallery-section {
+    background-color: #080908;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    text-align: center;
+    margin-left: auto;
+    max-width: 500px;
+  }
+  
+  .gallery-container {
+    max-width: 500px;
+    margin: 0 auto;
+    margin-left: auto;
+  }
+  
+  .main-image-container {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    max-height: 400px;
+  }
+  
+  .main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.5s ease;
+  }
+  
+  .thumbnails-track {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 10px 0;
+  }
+  
+  .thumbnails-track::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .thumbnail-item {
+    flex: 0 0 100px;
+    height: 80px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .thumbnail-item:hover, .thumbnail-item.active {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  .thumbnail-item.active {
+    border: 3px solid white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.5);
+  }
+  
+  .thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  #vinylBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  #vinylBtn:hover {
+    opacity: 1;
+  }
+
+
+/* Doa Restu */
+.doa {
+    font-family: 'Batusa', cursive;
+    font-size: 16px;
+    color: white;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+.doa-2 {
+    font-family: 'Batusa', cursive;
+    font-size: 15px;
+    color: #977676;
+    margin: 1rem 0 1rem;
+    text-align: center;
+}
+
+.doa-3 {
+    font-family: 'Batusa', cursive;
+    font-size: 15px;
+    color: #ffffff !important; /* Warna baru dengan !important */
+    margin: 0rem 0 0rem;
+    text-align: center;
+    text-decoration: none !important; /* Menghilangkan underline jika ada */
+    -webkit-tap-highlight-color: transparent !important; /* Menghilangkan highlight saat tap di mobile */
+}
+
+      
+
+
+
+      /* ANIMASI SCROLL */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-animate.visible:nth-child(1) { transition-delay: 0.1s; }
+.scroll-animate.visible:nth-child(2) { transition-delay: 0.2s; }
+/* dst */
+
+
+/* ===== EVENT SECTION ANIMATIONS ===== */
+.event-section .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.event-section .scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific delays for better sequencing */
+.event-section .event-date.visible {
+    transition-delay: 0.1s;
+}
+
+.event-section .schedule-item:nth-child(1).visible {
+    transition-delay: 0.2s;
+}
+
+.event-section .schedule-item:nth-child(2).visible {
+    transition-delay: 0.3s;
+}
+
+.event-section .venue-label.visible {
+    transition-delay: 0.4s;
+}
+
+.event-section .venue-name.visible {
+    transition-delay: 0.5s;
+}
+
+.event-section .venue-address.visible {
+    transition-delay: 0.6s;
+}
+
+.event-section .transport-note:nth-child(1).visible {
+    transition-delay: 0.7s;
+}
+
+.event-section .transport-note:nth-child(2).visible {
+    transition-delay: 0.8s;
+}
+
+
+@keyframes fadeInRotate {
+    from {
+        opacity: 0;
+        transform: rotate(-15deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+
+
+
+.leaf-decoration.visible {
+    animation: 
+        fadeInRotate 1s ease-out forwards,
+        gentleSway 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+.flower-decoration.visible {
+    animation: 
+        fadeInRotate 1s ease-out forwards,
+        gentleFloat 5s ease-in-out infinite;
+    transform-origin: center;
+    animation-delay: 0.3s;
+}
+
+@keyframes flowerSwing {
+    0%, 100% {
+        transform: rotate(-4deg);
+        transform-origin: top left;
+    }
+    50% {
+        transform: rotate(11deg);
+        transform-origin: top left;
+    }
+}
+
+.flower-decoration.visible {
+    animation: flowerSwing 7s ease-in-out infinite;
+}
+
+/* Existing fadeInRotate (keep this) */
+@keyframes fadeInRotate {
+    from {
+        opacity: 0;
+        transform: rotate(-15deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+/* ANIMASI DAUN YANG SUDAH DIROTASI -15deg */
+@keyframes naturalLeafSway {
+    0%, 100% {
+        transform: rotate(-4deg); /* Tambahan rotasi Z */
+        transform-origin: top center;
+    }
+    50% {
+        transform: rotate(4deg);
+        transform-origin: top center;
+
+    }
+}
+
+.leaf-decoration.visible {
+    opacity: 0.9;
+    animation: naturalLeafSway 5s ease-in-out infinite;
+}
+
+
+/* ============ CLOSING SECTION ============ */
+.closing-section {
+  position: relative;
+  width: 100%;
+  height: auto; /* Biarkan tinggi menyesuaikan */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Untuk posisi teks di bawah */
+  min-height: 100%;
+  padding-top: 5rem;
+}
+
+.closing-bg {
+  width: 100%;
+  display: block;
+  position: relative; /* Diubah dari absolute */
+  z-index: 0;
+}
+
+
+.closing-text {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Teks styling tetap sama */
+.closing-title {
+  font-family: 'Batusa', cursive;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.closing-names {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.closing-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  opacity: 0.4;
+}
