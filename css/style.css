@@ -32,6 +32,99 @@
     margin-left: auto;
   }
   
+/* ===== DESKTOP BACKGROUND SOLUTION ===== */
+.desktop-bg-container {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    body {
+        display: grid;
+        grid-template-columns: auto 500px; /* Foto fleksibel + konten tetap 500px */
+        justify-content: end;
+        min-height: 100vh;
+    }
+    
+    .desktop-bg-container {
+        display: block;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: calc(100vw - 500px);
+        height: 100vh;
+        z-index: 0;
+    }
+    
+    .desktop-bg-photo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right center; /* Fokus ke bagian kanan foto */
+    }
+    
+    .mobile-container {
+        grid-column: 2; /* Pastikan konten di kolom kedua */
+        margin-left: 0; /* Reset margin sebelumnya */
+    }
+    
+    /* Pastikan elemen interaktif tetap di atas */
+    #vinylBtn, .preloader {
+        position: fixed;
+        z-index: 10;
+    }
+
+    /* Overlay Styling */
+    .desktop-bg-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+        z-index: 1;
+    }
+
+}
+
+/* ===== FIX SECTION POSITIONING ===== */
+@media (min-width: 768px) {
+    /* Pastikan semua section tetap di kanan */
+    .mobile-container {
+        margin-left: auto;
+        margin-right: 0;
+        position: relative;
+        right: 0;
+    }
+
+    /* Khusus untuk countdown dan gallery section yang bukan .mobile-container */
+    .countdown-section, 
+    .gallery-section {
+        margin-left: auto;
+        margin-right: 0;
+        position: relative;
+        right: 0;
+        max-width: 500px;
+    }
+
+    /* Pastikan konten tidak melebar */
+    .black-panel {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .event-section,
+    .countdown-section,
+    .gallery-section,
+    .closing-section {
+        grid-column: 2; /* Force ke kolom kanan */
+        justify-self: end; /* Rapatkan ke kanan */
+        width: 500px; /* Fixed width */
+    }
+}
+
   /* Minimalist Preloader */
   .preloader {
     position: fixed;
